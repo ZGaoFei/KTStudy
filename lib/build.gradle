@@ -4,10 +4,23 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_7
-    targetCompatibility = JavaVersion.VERSION_1_7
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 dependencies {
+    // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // 协程核心库
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+    // 协程Android支持库
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+    // 协程Java8支持库
+    compile "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.4.3"
+
+    // lifecycle对于协程的扩展封装
+    // implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
+    // implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+    // implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
 }
