@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.ktstudy.list.ListActivity
 import com.example.lib.FirstKT
 import kotlinx.coroutines.*
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        val testSuspendBt = findViewById<Button>(R.id.bt_test_suspend1);
+        val testSuspendBt = findViewById<Button>(R.id.bt_test_suspend1)
         testSuspendBt.setOnClickListener(View.OnClickListener {
             testSuspend()
         })
@@ -34,6 +35,15 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.bt_skip_list_page).setOnClickListener(View.OnClickListener {
             ListActivity.start(this)
         })
+
+        // 切换主题
+        findViewById<Button>(R.id.bt_switch_theme).setOnClickListener {
+            if (delegate.localNightMode == AppCompatDelegate.MODE_NIGHT_YES) {
+                delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_NO
+            } else {
+                delegate.localNightMode = AppCompatDelegate.MODE_NIGHT_YES
+            }
+        }
     }
 
     private fun test() {

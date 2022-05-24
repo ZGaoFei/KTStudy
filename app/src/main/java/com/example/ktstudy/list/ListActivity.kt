@@ -4,8 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +17,7 @@ class ListActivity : AppCompatActivity() {
 
     // 静态方法
     companion object {
+        @JvmStatic
         fun start(context: Context) {
             context.startActivity(Intent(context, ListActivity().javaClass))
         }
@@ -39,7 +38,7 @@ class ListActivity : AppCompatActivity() {
             if (i % 2 == 0) {
                 val itemData = ItemData("title $i", "content $i")
                 data?.add(itemData)
-            } else{
+            } else {
                 val itemData2 = Item2Data("item $i")
                 data?.add(itemData2)
             }
@@ -48,9 +47,9 @@ class ListActivity : AppCompatActivity() {
 
     private fun initView() {
         val button = findViewById<Button>(R.id.bt_update)
-        button.setOnClickListener(View.OnClickListener {
+        button.setOnClickListener {
             adapter?.update(data)
-        })
+        }
         recyclerView = findViewById(R.id.recycler_view)
         recyclerView?.layoutManager = LinearLayoutManager(this)
         adapter = ListAdapter(this)
