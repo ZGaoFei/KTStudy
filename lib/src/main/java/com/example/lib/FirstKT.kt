@@ -4,8 +4,11 @@ package com.example.lib
 // 定义类
 class FirstKT {
 
-    fun main0(vararg list: String) {
-
+    fun main(): Unit {
+        // TODO: 3/14/22
+        TODO()
+        TODO("hello world")
+        return
     }
 
     fun main(args: Array<String>) {
